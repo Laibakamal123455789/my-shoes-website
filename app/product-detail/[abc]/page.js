@@ -63,23 +63,8 @@ export default function Page(){
               <strong>91%</strong> of buyers enjoyed this product!{" "}
             
             </p>
-            <h5 className="sizes">
-              sizes:
-              <span className="size" data-toggle="tooltip" title="small">
-                s
-              </span>
-              <span className="size" data-toggle="tooltip" title="medium">
-                m
-              </span>
-              <span className="size" data-toggle="tooltip" title="large">
-                l
-              </span>
-              <span className="size" data-toggle="tooltip" title="xtra large">
-                xl
-              </span>
-            </h5>
-           
-            <div className="action">
+             
+          <div className="action">
               <button onClick={()=>{
                 dispatch(addtocart(ad))
               }}
