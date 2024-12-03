@@ -10,9 +10,8 @@ export let productWalaSlice=createSlice({
             state.cart.push(action.payload)
 
         },
-        removecart:(state,action)=>{
-            state.cart.splice(action.payload,1)
-
+      removecart: (state, action) => { 
+            state.cart = state.cart.filter((item, index) => index !== action.payload);
         },
     }
 
