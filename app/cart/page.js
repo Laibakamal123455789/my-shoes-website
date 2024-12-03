@@ -13,7 +13,7 @@ export default function Page(){
 function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart);
-
+  
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   let total = 0;
@@ -23,7 +23,7 @@ function Cart() {
 
   const handleDelete = () => {
     if (selectedIndex !== null) {
-     
+      
       dispatch(removecart(selectedIndex)); 
       setSelectedIndex(null); 
     } else {
@@ -33,7 +33,13 @@ function Cart() {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4">Shopping Cart</h2>
+      <h2 className="text-center mb-4">
+        Shopping Cart{" "}
+        <span style={{ fontSize: "16px", color: "gray" }}>
+          ({cartItems.length} {cartItems.length === 1 ? "item" : "items"} in your cart)
+        </span>
+      </h2>
+
       <table className="table table-hover table-bordered shadow-lg">
         <thead className="bg-primary text-white">
           <tr>
@@ -50,9 +56,7 @@ function Cart() {
                 <input
                   type="checkbox"
                   checked={selectedIndex === index}
-                  onChange={() =>
-                    setSelectedIndex(selectedIndex === index ? null : index)
-                  }
+                  onChange={() => setSelectedIndex(selectedIndex === index ? null : index)}
                 />
               </td>
               <td className="text-center">
@@ -82,14 +86,18 @@ function Cart() {
           </tr>
         </tfoot>
       </table>
+
       <div className="d-flex justify-content-between mt-4">
+        {/* Delete button */}
         <button onClick={handleDelete} className="btn btn-danger btn-sm">
           Delete Selected Item
         </button>
+
+        {/* Checkout button */}
         <button
           onClick={() => {
-            toast.success("You Will Soon Recieve Your Order!Thank you very Much");
-            
+            toast.success("Proceeding to checkout...");
+            console.log("Proceeding to checkout...");
           }}
           className="btn btn-success btn-sm"
         >
@@ -99,5 +107,7 @@ function Cart() {
     </div>
   );
 }
+
+
 
 
