@@ -1,42 +1,475 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Card container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Main container with animation */
+.mymain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeSlideIn 1.5s ease-in-out forwards;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Heading container */
+.paraa {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+.paraa h1 {
+  font-size: 6rem;
   margin: 0;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #2c3e50, #ff0000); /* Dark to red gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: redGlow 2s infinite alternate; /* Glow with red tone */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Image container */
+.mypic {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.mypic img {
+  width: 80%;
+  height: auto;
+  transform: scale(0.8);
+  animation: imageZoomBounce 1.5s ease-out forwards; /* Zoom with bounce */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Subtle red glow around image */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .mymain {
+    flex-direction: column;
+  }
+
+  .paraa h1 {
+    font-size: 4rem;
+  }
+
+  .mypic img {
+    width: 80%;
   }
 }
+
+/* Keyframes for fade and slide in */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for red glow effect */
+@keyframes redGlow {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff3333, 0 0 30px #ff6666; /* Red glow */
+  }
+  100% {
+    text-shadow: 0 0 20px #cc0000, 0 0 30px #990000, 0 0 40px #660000; /* Darker red */
+  }
+}
+
+/* Keyframes for image zoom with bounce */
+@keyframes imageZoomBounce {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* General Styling for Grid */
+.grids {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.col {
+  position: relative;
+  width: 30%;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.col:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.col h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5722;
+  margin-top: 20px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.col:hover h4 {
+  color: #e64a19;
+}
+
+/* Image Styling */
+.grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-bottom: 3px solid #ff5722;
+}
+
+.col:hover .grid-img {
+  transform: scale(1.1);
+}
+
+/* Animation for Text & Images */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General Grid Container */
+.grids {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+  background-color: #f9f9f9; /* Light background to contrast the reds */
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Row Styling */
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Column Styling */
+.col {
+  position: relative;
+  width: 30%;
+  border: 2px solid #d32f2f;  /* Red border for stronger contrast */
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+}
+
+.col:hover {
+  transform: scale(1.05);  /* Slight zoom-in on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.col h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d32f2f;  /* Red color for headings */
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.col:hover h4 {
+  color: #b71c1c;  /* Darker red on hover for emphasis */
+}
+
+/* Image Styling */
+.grid-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 3px solid #d32f2f;  /* Red bottom border */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.col:hover .grid-img {
+  transform: scale(1.1);  /* Zoom effect on hover */
+  opacity: 0.8;  /* Slight opacity reduction for visual depth */
+}
+
+/* Hover Effect for Buttons */
+.add-to-cart, .like {
+  background-color: #d32f2f !important;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+  cursor: pointer;
+}
+
+.add-to-cart:hover, .like:hover {
+  background-color: #b71c1c !important;
+  color: #fff;
+}
+
+/* Tooltip Color */
+.tooltip-inner {
+  padding: 1.3em;
+  background-color: #d32f2f;  /* Red Tooltip Background */
+  color: white;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General Grid Container */
+.grids {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+  background-color: #f9f9f9; /* Light background to contrast the reds */
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Row Styling */
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Column Styling */
+.col {
+  position: relative;
+  width: 30%;
+  border: 2px solid #d32f2f;  /* Red border for stronger contrast */
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+}
+
+.col:hover {
+  transform: scale(1.05);  /* Slight zoom-in on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.col h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d32f2f;  /* Red color for headings */
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.col:hover h4 {
+  color: #b71c1c;  /* Darker red on hover for emphasis */
+}
+
+/* Image Styling */
+.grid-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 3px solid #d32f2f;  /* Red bottom border */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.col:hover .grid-img {
+  transform: scale(1.1);  /* Zoom effect on hover */
+  opacity: 0.8;  /* Slight opacity reduction for visual depth */
+}
+
+/* Hover Effect for Buttons */
+.add-to-cart, .like {
+  background-color: #d32f2f !important;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+  cursor: pointer;
+}
+
+.add-to-cart:hover, .like:hover {
+  background-color: #b71c1c !important;
+  color: #fff;
+}
+
+/* Tooltip Color */
+.tooltip-inner {
+  padding: 1.3em;
+  background-color: #d32f2f;  /* Red Tooltip Background */
+  color: white;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General Grid Container */
+.grids {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Row Styling */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;  /* Reduced gap for better compactness */
+}
+
+/* Column Styling */
+.col {
+  width: 30%;  /* Adjusted to keep it compact */
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.col:hover {
+  transform: scale(1.05);  /* Slight zoom-in effect on hover */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Header inside Column */
+.col h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #d32f2f;  /* Red color for headings */
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.col:hover h4 {
+  color: #b71c1c;  /* Darker red on hover */
+}
+
+/* Image Styling */
+.grid-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.col:hover .grid-img {
+  transform: scale(1.1);  /* Slight zoom effect on hover */
+  opacity: 0.85;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .col {
+    width: 90%;  /* Make it full width on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .grid-img {
+    height: 180px;  /* Adjust image height for smaller screens */
+  }
+}
+
