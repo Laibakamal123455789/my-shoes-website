@@ -96,8 +96,8 @@ function Cart() {
         {/* Checkout button */}
         <button
           onClick={() => {
-            toast.success("Proceeding to checkout...");
-            console.log("Proceeding to checkout...");
+            toast.success("soon you will receive order!Thank You Very Much");
+           
           }}
           className="btn btn-success btn-sm"
         >
